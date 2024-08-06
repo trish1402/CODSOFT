@@ -1,0 +1,124 @@
+ import java.util.*;
+ interface Atm {
+    void display();
+    void withdraw();
+    void deposit ();
+    void checkBalance();
+}
+interface user {
+    void withdraw(double amount);
+    void deposit (double amount );
+     double fetchBalance();
+}
+class Account implements user{
+    double a;
+    Account(double a){ // sets an initial balance amount
+        this.a=a;
+
+    }
+
+    @Override
+    public double fetchBalance() {
+     return(this.a); // returning the balance
+        
+    }
+
+    @Override
+    public void deposit(double amount) {
+        if(amount>0){
+            this.a=this.a+amount;
+        System.out.println("The new balance amount is ="+this.a);
+        System.out.println("And the deposit sum is="+amount);
+        }
+        else{
+            System.out.println("Sorry not poissible as you have to deposit more than zero");
+        }
+ }
+    @Override
+    public void withdraw(double amount) {
+        
+        if(amount>this.a)
+        {
+            System.out.println("Not enough balance");
+        }
+        else{
+            this.a=this.a-amount;
+            System.out.println("After withdrawing new balance is="+this.a);
+            
+        }
+    }
+    
+}
+ class Atm_main implements Atm {
+    Scanner in = new Scanner (System.in);
+    private Account acc;
+    public Atm_main (Account acc)
+    {
+        this.acc=acc;
+    }
+
+    @Override
+    public void checkBalance() {
+        System.out.println("the balance is=" +acc.fetchBalance());
+       
+        
+    }
+
+    @Override
+    public void deposit() {
+        System.out.println("Enter deposit amount");
+        double amount=in.nextDouble();
+        acc.deposit(amount);
+       
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Welcome Users");
+        System.out.println("press 1 for deposit ");  
+        System.out.println("press 2 for withdraw ");
+        System.out.println("press 3 to check the balance");
+        System.out.println("press 4 to omit");
+        
+    }
+
+    @Override
+    public void withdraw() {
+       System.out.println("Enter withdrawl amount");
+       double amount=in.nextDouble();
+       acc.withdraw(amount);
+    }
+
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner (System.in);
+        Account account = new Account(2000);
+        Atm atm = new Atm_main(account);
+        atm.display();
+        while(true)
+        {
+       
+        System.out.println("enter your choice");
+        int c= in.nextInt();
+        switch(c){
+            case 1:
+            atm.deposit();
+            break;
+            case 2:
+            atm.withdraw();
+            break;
+            case 3:
+            atm.checkBalance();
+            break;
+            case 4:
+            System.out.println("Thankyou, visit again");
+             return;
+            default:
+            break;
+        }
+
+    }
+    
+  }
+}
