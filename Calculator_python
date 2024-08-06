@@ -1,0 +1,27 @@
+a=int(input("Enter 1st number : "))
+b=int(input("Enter 2nd number : "))
+print("Enter 1 for addition")
+print("Enter 2 for substraction")
+print("Enter 3 for multiplication")
+print("Enter 4 for division")
+x=int(input("Enter your choice"))
+if(x== 1):
+    s=0
+    s=a+b
+    print("The sum is = ",s)
+elif(x== 2):
+    if(a>b):
+      d=a-b
+    else:
+      d=b-a
+    print("The difference is = ",d)
+elif(x== 3):
+    m=1
+    m=a*b
+    print("The product is = ",m)
+else:
+    if(a>b):
+        p=a/b
+    else:
+        p=b/a
+    print("The division's answer is = ",p)
