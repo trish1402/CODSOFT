@@ -1,0 +1,60 @@
+import java.util.*;
+public class Number {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int attempts=1;
+        int score=0;
+        Random r= new Random();
+        System.out.println("Welcome users to guess the number");
+        System.out.println("Guess a number between 1 to 100");
+        do
+        {
+            int n= r.nextInt(100)+1;
+            int max_attempts=5;
+            while(attempts<=max_attempts)
+            {
+                attempts++;
+                System.out.println("Enter your guess but it should be within the range");
+                int m=in.nextInt();
+                if(m>n)
+                {
+                    System.out.println("Your gussed number is greater");
+                    
+                    
+                }
+                if(m<n)
+                {
+                    System.out.println("Your gussed number is smaller");
+                 
+                    
+                }
+                else if(m==n){
+                    System.out.println("Hurray you guessed corrctly !!!");
+                    score++;
+                    break;
+                    
+                }
+                
+            }
+                    System.out.println("Sorry but the computer guessed number was :"+n);
+                    System.out.println("Press 1 to play again and 0 to exit");
+                    int y=in.nextInt();
+                    if(y!=1)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        System.out.println("Let's play again");
+                        attempts=1;
+                        
+                    }
+                     
+        }  while(true);
+        System.out.println("Your score is="+score);
+        System.out.println("See you next time");
+     }
+
+}
+    
+    
