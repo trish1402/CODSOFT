@@ -1,0 +1,47 @@
+import random
+list= ["rock", "paper", "scissor"]
+max_round = 3
+rounds = 1
+print("Welcome to rock , paper and scissor game")
+while True:
+    user=0
+    comp=0
+    user_total=0
+    comp_total=0
+    # while(rounds<=max_round):
+    for round in range(1, max_round + 1):
+  
+      r = random.choice(list)
+      c = input("Enter your choice ")
+      if (c == r):
+        print("It's a tie!")
+        print("Computer's choice was",r)
+        user=user+1
+        comp=comp+1
+      elif (c == "rock" and r == "scissor") or (c == "scissor" and r == "paper") or (c == "paper" and r == "rock"):
+        print("You win!")
+        user=user+1
+        print("Computer's choice was",r)
+      else:
+        print("Computer wins!")
+        comp=comp+1
+        print("Computer's choice was",r)
+    rounds=rounds+1
+    user_total=user_total+user
+    comp_total=comp_total+comp
+    if(user_total<comp_total):
+     print("Computer had won the Match")
+     print("Total score of computer is=",comp_total)
+    elif(comp_total<user_total):
+      print("You have won the Match")
+      print("Total score of user is=",user_total)
+    else:
+      print("Both are winners")
+      print("Both have same score",user_total , comp_total)
+      
+    y=int(input("Press 1 to play again and 0 to exit"))
+    if(y != 1):
+      break
+    else:
+      print("Let's play again")
+      
